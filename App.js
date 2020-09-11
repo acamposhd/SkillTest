@@ -33,6 +33,9 @@ function App() {
   let options = {
     title: I18n.t("appTitle"),
     headerTitleAlign: "center",
+    headerStyle: {
+      backgroundColor: '#F6F2FF'
+    },
     cardStyle: { backgroundColor: "#F6F2FF" },
   };
   return (

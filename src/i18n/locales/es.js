@@ -9,5 +9,6 @@ export default {
     reportPrice:"Reportar incremento de precios",
     reportPlaceHolder:"Escriba aquí, se permiten 200 caracteres ó 29 palabras...",
     mapSearch:"Buscar...",
+    mapMessage:"Por favor comparta su ubicación aproximada. Esta información será confidencial.",
     notFound:"Oops... nada por aquí"
   };

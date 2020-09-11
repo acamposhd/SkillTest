@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import MapView from "react-native-maps";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import Geolocation from "@react-native-community/geolocation";
 import Search from "../Search";
 import ControlButtons from "../ControlButtons/index";
 import PlacesInput from "react-native-places-input";
 import I18n from "../../i18n/config";
+import styles from "../MapView/styles";
 
 export default class Map extends Component {
   state = {
@@ -84,6 +85,9 @@ export default class Map extends Component {
           />
         </View>
         <ControlButtons props={this.props} flex={0} />
+        <View style={styles.message}>
+            <Text style={styles.text}>{I18n.t("mapMessage")}</Text>
+        </View>
       </React.Fragment>
     );
   }

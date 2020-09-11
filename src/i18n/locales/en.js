@@ -9,5 +9,6 @@ export default {
     reportSubtitle:"Please provide a brief description of the issue",
     reportPlaceHolder:"Type here, 200 characteres or 29 words allowed...",
     mapSearch:"Search...",
+    mapMessage:"Please provide your approximate location. This information will be kept confidential.",
     notFound:"Oops... nothing here"
   };

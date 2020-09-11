@@ -8,6 +8,7 @@ import PlacesInput from "react-native-places-input";
 import I18n from "../../i18n/config";
 import styles from "../MapView/styles";
 
+
 export default class Map extends Component {
   state = {
     region: null,
@@ -28,6 +29,7 @@ export default class Map extends Component {
 
   render() {
     const { region, destination } = this.state;
+    const GOOGLE_API_KEY ="KEY_AQUI";
 
     return (
       <React.Fragment>
@@ -53,7 +55,7 @@ export default class Map extends Component {
               left: -1,
               right: -1,
             }}
-            googleApiKey={"AIzaSyD3iObdCKuJynKlC7JQ61iSzIFxvyWEWUs"}
+            googleApiKey={GOOGLE_API_KEY}
             onSelect={(place) =>
               this.setState({
                 region: {

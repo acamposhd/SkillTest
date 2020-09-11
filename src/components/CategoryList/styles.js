@@ -2,27 +2,33 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
+    padding: 40,
     marginTop: 3,
     borderBottomColor: "#000000",
     borderBottomWidth: 1.5,
     backgroundColor: "#F6F2FF",
-    alignItems: "center",
+    textAlign:"left"
   },
   text: {
     color: "#000000",
+    fontWeight:"bold",
+    fontSize:18,
+    left:-15
   },
   subtitle: {
     color: "#000000",
     paddingLeft: 15,
     paddingTop: 10,
+    fontSize:24,
+    paddingBottom:10
   },
   title: {
     paddingLeft: 15,
     paddingTop: 25,
     color: "#000000",
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: "bold",
+
   },
   buttonStyle: {
     position: 'absolute',
@@ -42,10 +48,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius:15,
-    position: 'absolute', //Here is the trick
-    bottom: 15, //Here is the trick
+    position: 'absolute', 
+    bottom: 15,
     left:10
-    
   },
   nextButton: {
     width: "45%",
@@ -56,8 +61,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius:15,
-    position: 'absolute', //Here is the trick
-    bottom: 15, //Here is the trick
+    position: 'absolute',
+    bottom: 15,
     right:10
   },
 });

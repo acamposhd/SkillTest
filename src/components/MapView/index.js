@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import MapView from "react-native-maps";
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Image } from "react-native";
 import Geolocation from "@react-native-community/geolocation";
 import Search from "../Search";
 import ControlButtons from "../ControlButtons/index";
-import styles from "./styles";
+import PlacesInput from "react-native-places-input";
 import I18n from "../../i18n/config";
 
 export default class Map extends Component {
@@ -27,6 +27,7 @@ export default class Map extends Component {
 
   render() {
     const { region, destination } = this.state;
+
     return (
       <React.Fragment>
         <View style={{ flex: 1 }}>
@@ -34,29 +35,55 @@ export default class Map extends Component {
             style={{ flex: 1 }}
             region={region}
             showsUserLocation
-            followsUserLocation
             loadingEnabled
           />
-          <Search />
+          {/* <Search props={this.props} /> */}
+          <PlacesInput
+            placeHolder={I18n.t("mapSearch")}
+            stylesContainer={{
+              position: "absolute",
+              alignSelf: "stretch",
+              top: 60,
+              left: 10,
+              right: 10,
+            }}
+            stylesList={{
+              top: 0,
+              left: -1,
+              right: -1,
+            }}
+            googleApiKey={"AIzaSyD3iObdCKuJynKlC7JQ61iSzIFxvyWEWUs"}
+            onSelect={(place) =>
+              this.setState({
+                region: {
+                  latitude: place.result.geometry.location.lat,
+                  longitude: place.result.geometry.location.lng,
+                  latitudeDelta: 0.0143,
+                  longitudeDelta: 0.0134,
+                },
+              })
+            }
+          />
         </View>
-
-        <ControlButtons props={this.props} flex={0}/>
-
-        {/* <View
+        <View
           style={{
-            justifyContent: "center",
+            left: "50%",
+            marginLeft: -24,
+            marginTop: -48,
+            position: "absolute",
+            top: "50%",
           }}
         >
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => this.props.navigation.goBack()}
-          >
-            <Text style={{ color: "#CB2038", fontSize: 16 }}>Back</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.nextButton}>
-            <Text style={{ color: "#FFFFFF", fontSize: 16 }}>Next</Text>
-          </TouchableOpacity>
-        </View> */}
+          <Image
+            style={{
+              resizeMode: "contain",
+              height: 35,
+              width: 35,
+            }}
+            source={require("../../assets/marker.png")}
+          />
+        </View>
+        <ControlButtons props={this.props} flex={0} />
       </React.Fragment>
     );
   }
